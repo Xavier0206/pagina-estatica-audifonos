@@ -30,6 +30,7 @@ html {
 body {
   font-size: 16px;
   font-family: var(--fuentePrincipal);
+
 }
 
 h1,
@@ -87,12 +88,81 @@ a {
 }
 
 /* Degradado */
-.degradado-producto {
+/*.degradado-producto {
   color: transparent;
-  background: linear-gradient(to right, var(--primario) 0%, var(--secundario) 100%);
   -webkit-background-clip: text;
   background-clip: text;
+  background-image: linear-gradient(to right, var(--primario) 0%, var(--secundario) 50%, var(--primario) 100%);
+  background-size: 200% 100%;
+  animation: moverDegradado 1s linear infinite;
 }
+
+@keyframes moverDegradado {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  /* 50% {
+    background-position: 100% 50%;
+  } 
+
+  100% {
+    background-position: 100% 50%;
+  }
+}*/
+.degradado-producto {
+  font-weight: bold;
+  /* position: relative; */
+  color: #fff;
+  background-image: linear-gradient(90deg, #00ff88, #00b3ff, #ff00aa, #00ff88);
+  background-size: 300%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: textoBarrido 8s linear infinite;
+}
+
+@keyframes textoBarrido {
+  0% {
+    background-position: -100% 0%;
+  }
+
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+/* .degradado-producto {
+  font-weight: bold;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  background-image: linear-gradient(90deg,
+      var(--secundario),
+      var(--primario),
+      #ff00aa,
+      var(--secundario));
+  background-size: 200% 100%;
+  animation: barrido 3s ease-in infinite;
+}
+
+@keyframes barrido {
+  0% {
+    background-position: -100% 0%;
+  }
+
+  50% {
+    background-position: 0% 100%;
+  }
+
+  100% {
+    background-position: 100% 0%;
+  }
+} */
+
+
 
 /* Header */
 .header {
@@ -144,6 +214,32 @@ a {
   width: 5rem;
 }
 
+/* Section tech */
+.sobre-tech {
+  display: flex;
+  flex-direction: column;
+}
+
+.sobre-tech-img {
+  width: 100%;
+  height: 30rem;
+  background-image: url(../img/imagen-mujer.jpg);
+  background-size: cover;
+  background-position: center
+}
+
+.sobre-tech-texto {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 30rem;
+  background-color: var(--primario);
+  text-align: center;
+  color: var(--blanco);
+  padding: 0 calc(var(--separacion));
+}
+
+
 @media (min-width: 768px) {
   .contenido-header {
     display: grid;
@@ -169,5 +265,19 @@ a {
   .contenedor-seccion {
     display: flex;
     column-gap: 1rem;
+  }
+
+  /* Sobre Tech */
+  .sobre-tech {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  .sobre-tech-texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: calc(var(--separacion)/2);
   }
 }
